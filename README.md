@@ -2,7 +2,7 @@
 Adds Macros to Compendium with Male and Female Names generator.
 
 ## Usage
-- Drag a corresponding Macro from Compendium to a panel and clock on it  :)
+- Import a corresponding Macro from Compendium and execute it  :)
 - Generator creates 5 names and posts them with a Whisper to you into chat window.
 
 ## Screenshots
