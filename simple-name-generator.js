@@ -16,7 +16,7 @@ class SimpleNameGeneratorMacros {
     for (let i = 1; i <= 5; i++) {
       let idx_name = Math.floor(Math.random() * SNG_NAMES[name_type][gender].length);
       let idx_surname = Math.floor(Math.random() * SNG_NAMES[name_type]["surname"].length);
-      let name = `${SNG_NAMES[gender][idx_name]} ${SNG_NAMES[name_type]["surname"][idx_surname]}`;
+      let name = `${SNG_NAMES[name_type][gender][idx_name]} ${SNG_NAMES[name_type]["surname"][idx_surname]}`;
       names.push(name);
     }
 
