@@ -5,7 +5,7 @@
   "version": "1.0",
   "author": "megastruktur",
   "scripts": [
-    "./library/english_names.js",
+    "./library/names.js",
     "./simple-name-generator.js"
   ],
   "packs": [

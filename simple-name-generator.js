@@ -5,17 +5,19 @@ class SimpleNameGeneratorMacros {
 
   /**
    * Generate Name conditional wrapper.
-   * @param {string} gender 
+   * @param {string} gender
+   * @param {string} name_type
    */
-  static generateName(gender = "male", name_type = "english") {
+  static generateName(gender = "masc", name_type = "english") {
 
     let names = [];
     let names_html = "";
 
-    switch (name_type) {
-      case "english":
-        names = SimpleNameGeneratorMacros.generateEnglishName(gender)
-        break;
+    for (let i = 1; i <= 5; i++) {
+      let idx_name = Math.floor(Math.random() * SNG_NAMES[name_type][gender].length);
+      let idx_surname = Math.floor(Math.random() * SNG_NAMES[name_type]["surname"].length);
+      let name = `${SNG_NAMES[gender][idx_name]} ${SNG_NAMES[name_type]["surname"][idx_surname]}`;
+      names.push(name);
     }
 
     names.forEach(n => {
@@ -31,24 +33,6 @@ class SimpleNameGeneratorMacros {
       "sound": CONFIG.sounds.notification
     }
     CONFIG.ChatMessage.entityClass.create(chatData);
-  }
-
-  /**
-   * Generate simple English name.
-   * @param {string} gender 
-   */
-  static generateEnglishName(gender) {
-
-    let names = [];
-
-    for (let i = 1; i <= 5; i++) {
-      let idx_name = Math.floor(Math.random() * SNG_ENGLISH_NAMES[gender].length);
-      let idx_surname = Math.floor(Math.random() * SNG_ENGLISH_NAMES["surname"].length);
-      let name = `${SNG_ENGLISH_NAMES[gender][idx_name]} ${SNG_ENGLISH_NAMES["surname"][idx_surname]}`;
-      names.push(name);
-    }
-
-    return names;
   }
 }
 
