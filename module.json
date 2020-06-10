@@ -2,10 +2,9 @@
   "name": "simple-name-generator",
   "title": "Simple Name Generator",
   "description": "A little app to generate names for you.",
-  "version": "1.0",
+  "version": "3.0",
   "author": "megastruktur",
   "scripts": [
-    "./library/english_names.js",
     "./simple-name-generator.js"
   ],
   "packs": [
@@ -18,8 +17,8 @@
     }
   ],
   "url": "https://github.com/megastruktur/foundryvtt-simple-name-generator",
-  "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-simple-name-generator/master/module.json",
-  "download": "https://github.com/megastruktur/foundryvtt-simple-name-generator/archive/1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-simple-name-generator/3.0/module.json",
+  "download": "https://github.com/megastruktur/foundryvtt-simple-name-generator/archive/3.0.zip",
   "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.5.5"
+  "compatibleCoreVersion": "0.6.2"
 }

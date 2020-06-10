@@ -4,20 +4,29 @@
 class SimpleNameGeneratorMacros {
 
   /**
-   * Generate Name conditional wrapper.
-   * @param {string} gender 
+   * Generate a simple name.
+   * @param {string} name_type
+   * @param {string} gender
    */
-  static generateName(gender = "male", name_type = "english") {
+  static async generateSimpleName(name_type = "english", gender = "male") {
 
-    let names = [];
+    const url = "https://wa1z1p0757.execute-api.eu-west-1.amazonaws.com/dev";
+
+    const response = await fetch(`${url}/${name_type}/${gender}`);
+    const names_json = await response.json(); //extract JSON from the http response
+    
+    SimpleNameGeneratorMacros.whisperNamesToChat(names_json);
+
+  }
+
+  /**
+   * Whispers names to Chat.
+   *
+   * @param {Array} names
+   */
+  static whisperNamesToChat(names = []) {
+
     let names_html = "";
-
-    switch (name_type) {
-      case "english":
-        names = SimpleNameGeneratorMacros.generateEnglishName(gender)
-        break;
-    }
-
     names.forEach(n => {
       names_html += `${n}<br>`;
       // @todo Make every name click-to-copy
@@ -31,24 +40,6 @@ class SimpleNameGeneratorMacros {
       "sound": CONFIG.sounds.notification
     }
     CONFIG.ChatMessage.entityClass.create(chatData);
-  }
-
-  /**
-   * Generate simple English name.
-   * @param {string} gender 
-   */
-  static generateEnglishName(gender) {
-
-    let names = [];
-
-    for (let i = 1; i <= 5; i++) {
-      let idx_name = Math.floor(Math.random() * SNG_ENGLISH_NAMES[gender].length);
-      let idx_surname = Math.floor(Math.random() * SNG_ENGLISH_NAMES["surname"].length);
-      let name = `${SNG_ENGLISH_NAMES[gender][idx_name]} ${SNG_ENGLISH_NAMES["surname"][idx_surname]}`;
-      names.push(name);
-    }
-
-    return names;
   }
 }
 
