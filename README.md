@@ -1,6 +1,10 @@
 # Simple name generator for FoundryVTT
 Adds Macros to Compendium with Male and Female Names generator.
 
+## Authors
+- megastruktur (megastruktur#5704), coding
+- Orion (Orion#8710), name packs and ideas
+
 ## Usage
 - Import a corresponding Macro from Compendium and execute it  :)
 - Generator creates 5 names and posts them with a Whisper to you into chat window.
