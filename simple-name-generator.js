@@ -33,13 +33,15 @@ class SimpleNameGeneratorMacros {
       // names_html += `<a class="click-to-copy">${n}</a><br>`;
     });
 
+    let currentUserId = game.user._id;
+
     let chatData = {
-      "user": game.user._id,
-      "whisper": [game.user._id],
+      "user": currentUserId,
+      "whisper": [currentUserId],
       "content": names_html,
       "sound": CONFIG.sounds.notification
     }
-    CONFIG.ChatMessage.entityClass.create(chatData);
+    ChatMessage.create(chatData);
   }
 }
 
