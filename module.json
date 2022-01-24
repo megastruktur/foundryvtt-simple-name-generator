@@ -17,8 +17,8 @@
     }
   ],
   "url": "https://github.com/megastruktur/foundryvtt-simple-name-generator",
-  "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.6.4"
   "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-simple-name-generator/3.1.1/module.json",
   "download": "https://github.com/megastruktur/foundryvtt-simple-name-generator/archive/3.1.1.zip",
+  "minimumCoreVersion": "9.0.0",
+  "compatibleCoreVersion": "9.0.0"
 }
