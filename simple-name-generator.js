@@ -28,7 +28,7 @@ class SimpleNameGeneratorMacros {
 
     let names_html = "";
     names.forEach(n => {
-      names_html += `${n}<br>`;
+      names_html += `<a class="click-to-copy">${n}</a><br>`;
       // @todo Make every name click-to-copy
       // names_html += `<a class="click-to-copy">${n}</a><br>`;
     });
@@ -45,12 +45,27 @@ class SimpleNameGeneratorMacros {
   }
 }
 
-// @todo Add Click-to-copy functionality
-// document.addEventListener('click',function(e){
-//   if(e.target && e.target.className === 'click-to-copy') {
-//     console.log(e.target.value);
-//     console.log(e.target.firstChild);
-//     e.target.firstChild.select();
-//     document.execCommand("copy");
-//   }
-// });
+// Copy name to clipboard functionality.
+document.addEventListener('click',function(e){
+  // copy content of <a> tag to clipboard
+  if(e.target.classList.contains('click-to-copy')){
+    e.preventDefault();
+    let text = e.target.innerText;
+    let dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+
+    // Append tooltip to clicked element
+    let tooltip = document.createElement("span");
+    tooltip.innerText = "Copied!";
+    e.target.appendChild(tooltip);
+    setTimeout(function(){
+      e.target.removeChild(tooltip);
+      // wrap clicked element in strike tag
+      e.target.innerHTML = "<strike>" + e.target.innerHTML + "</strike>";
+    }, 1000);
+  }
+});
