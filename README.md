@@ -18,6 +18,9 @@ Adds Macros to Compendium with Male and Female Names generator.
 ## Screenshots
 ![alt usage][usage]
 
+## Note for developers
+This Generator makes calls to AWS Lambda API. The code of that Lambda is here: https://github.com/megastruktur/foundryvtt-simple-name-generator-lambda
+
 ## Language List
 ```
 akan
